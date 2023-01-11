@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="main2.css" rel="stylesheet">
+
+    <!-- jquery library cdn 원래는 body 태그 맨밑에다가 쓰는게 관습 그게 더 빠름 -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+</head>
+  <body>
+
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <span class="navbar-brand">Navbar</span>
+          <button class="navbar-toggler" type="button">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav> 
+
+    <!-- 나중에 클래스 탈 부착할 거임 -->
+    <ul class="list-group">  
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li>
+    </ul> 
+    
+    <script>
+
+        // document.querySelector('.list-group') // 이런식으로 선택가능 -> 쿼리셀렉터 특징 맨 위 하나만 가져옴 다가져올려면 querySelectorAll 을  사용해야함 이러고 인덱싱 사용 가능
+        // document.querySelector('#item') // 이런식으로 하면 아이디 가능
+        // document.getElementsByClassName('navbar-toggler')
+        // [0].addEventListener('click',function(){
+
+        //     document.getElementsByClassName('list-group')[0].classList.toggle('show'); //toggle -> 땠다 붙였다 할 수 있는 기능
+        // })
+
+        document.querySelector('.navbar-toggler').addEventListener('click',function(){
+            document.querySelectorAll('.list-group')[0].classList.toggle('show');
+        })
+
+        $('.hello').html('바보');
+        $('.hello').css('color', 'red'); //addclass toggleclass removeclass 등등 있음
+        $('#test-btn').on('click', function(){ // 이벤트임
+        })
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>
