@@ -10,16 +10,87 @@
     <!-- jquery library cdn 원래는 body 태그 맨밑에다가 쓰는게 관습 그게 더 빠름 -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 </head>
-  <body>
+  <body class="dark">
+
+
+    <div class="black-bg">
+      <div class="white-bg">
+        <h4>로그인하세요</h4>
+        <form action="succes.html">
+          <div class="my-3">
+            <input type="text" class="form-control" id="email">
+          </div>
+          <div class="my-3">
+            <input type="password" class="form-control" id="password">
+          </div>
+          <button type="submit" class="btn btn-primary" id="send">전송</button>
+          <button type="button "class="btn btn-danger" id="close">닫기</button>
+          
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // 전송버튼 누르면 -> 저기 input에 입력한 값이 공백이면 알림창띄워주세요~!
+      
+      // if (조건){
+      //   실행할 코드~~
+      // } else {
+
+      //}
+      $('form').on('submit', function(e){
+        if (document.getElementById('email').value == ''){
+          e.preventDefault(); // 전송을 막는거
+          alert('아이디입력안함')
+        }
+        if (document.getElementById('password').value == ''){
+          e.preventDefault();
+          alert('비밀번호를 입력안함')
+        }
+        if (document.getElementById('password').value.length < 6){
+          e.preventDefault();
+          alert('비밀번호가 너무 짧습니다.')
+        }
+      });
+
+      // document.getElementById('email').addEventListener('change', function(){  //input이 변할때라는 이벤트 ==change 도 됨
+      //   //change 는 한번 다른곳을 클릭해야지 가능 ex) 비밀번호 입력할떄마다 글자 작다고 이벤트 발생시키는거 가능
+      //   console.log('안녕')
+      // })
+
+    </script>
 
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
           <span class="navbar-brand">Navbar</span>
+          <span class="badge bg-dark">Dark 🔄</span>
           <button class="navbar-toggler" type="button">
             <span class="navbar-toggler-icon"></span>
           </button>
         </div>
       </nav> 
+
+      <script>
+        //badge 클릭횟수가 홀수번 클릭시 내부 글자를 light로 변경
+        //badge 클릭횟수가 짝수번 클릭시 내부 글자를 Dark로 변경
+        //var 나이 = 20; // 이렇게 변수 만들 수 있음
+        
+        var count = 0;
+        $('.badge').on('click', function(){
+          count +=1;
+          //console.log(count)
+          if (count % 2 == 1){
+            $('.badge').html('light 🔄')
+          }
+          else {
+            $('.badge').html('Dark 🔄')
+
+          }
+        });
+
+        //let 변수 같은경우는 재선언이 불가능, 재할당이 가능 변수 까먹고 만들 수 있는거 방지 const 는 재선언 재할당 둘다 금지
+        // let const 는 {} 가 범위임
+      </script>
 
     <!-- 나중에 클래스 탈 부착할 거임 -->
     <ul class="list-group">  
@@ -29,9 +100,30 @@
         <li class="list-group-item">A fourth item</li>
         <li class="list-group-item">And a fifth one</li>
     </ul> 
+
+    <div class="main-bg">
+      <h4>Shirts on Sale</h4>
+      <button id="login" class="btn btn-danger">로그인</button>
+    </div>
+
+
+
+
+    <!-- <button id ="login"> 로그인</button> -->
+
+    <script>
+      // 로그인 버튼 누르면 모달창 띄워주셈 (show-modal 클래스를 저기 붙여주셈)
+      // document.getElementById('login').addEventListener('click', function(){
+      //   document.querySelector('.black-bg').classList.add('show-modal')
+      // })
+      $('#login').on('click', function(){ //-> jQuery 버전
+        $('.black-bg').addClass('show-modal');
+      })
+      
+    </script>
     
     <script>
-
+        //1월 12일
         // document.querySelector('.list-group') // 이런식으로 선택가능 -> 쿼리셀렉터 특징 맨 위 하나만 가져옴 다가져올려면 querySelectorAll 을  사용해야함 이러고 인덱싱 사용 가능
         // document.querySelector('#item') // 이런식으로 하면 아이디 가능
         // document.getElementsByClassName('navbar-toggler')
@@ -43,12 +135,20 @@
         document.querySelector('.navbar-toggler').addEventListener('click',function(){
             document.querySelectorAll('.list-group')[0].classList.toggle('show');
         })
+    </script>
+
+    <!-- <p class="hello">안녕</p> -->
+<!-- 
+    <script>
+
 
         $('.hello').html('바보');
         $('.hello').css('color', 'red'); //addclass toggleclass removeclass 등등 있음
         $('#test-btn').on('click', function(){ // 이벤트임
         })
-    </script>
+    </script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   </body>
 </html>
+
+
